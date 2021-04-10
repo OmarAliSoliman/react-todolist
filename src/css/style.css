@@ -23,8 +23,12 @@ body {
 .todo-form .filter-todos option {
   font-size: 15px;
 }
+.todo-form .input-group {
+  height: 50px;
+}
 .todo-form .input-group .form-control {
   border: 0;
+  height: 50px;
 }
 .todo-form .input-group .form-control:focus {
   outline: 0 !important;
@@ -81,7 +85,7 @@ body {
 .todo-list-parent .list-item .delete-task:hover,
 .todo-list-parent .list-item .edit-task:hover {
   color: #fff;
-  background-color: #666666;
+  background-color: #563d7c;
 }
 .todo-list-parent .list-item .edit-task {
   right: 40px;
@@ -93,6 +97,12 @@ body {
   color: #000;
   background-color: transparent;
   border: 0;
+}
+.todo-list-parent .lets-make {
+  text-align: center;
+  font-size: 30px;
+  color: #fff;
+  letter-spacing: 5px;
 }
 
 @media (max-width: 800px) {

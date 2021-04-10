@@ -34,7 +34,7 @@ class TodoForm extends Component {
         allTasks: newTodoList,
         newtask: "",
         disaled: true,
-        id : this.state.id + 1,
+        id: this.state.id + 1,
       });
       e.preventDefault();
     };
@@ -46,9 +46,12 @@ class TodoForm extends Component {
       //   allTasks: newTodoList,
       // });
 
-      const filterItem = this.state.allTasks.filter((item, index) => index !== myindex);
+      const filterItem = this.state.allTasks.filter(
+        (item, index) => index !== myindex
+      );
       this.setState({
         allTasks: filterItem,
+        id: this.state.id - 1,
       });
       // that mean return all elements whithout the element that has index === index
     };
@@ -59,7 +62,7 @@ class TodoForm extends Component {
       newTodoList[myindex].title = taskEdit;
       this.setState({
         allTasks: newTodoList,
-      })
+      });
     };
 
     return (
@@ -97,6 +100,7 @@ class TodoForm extends Component {
             newTask={this.state.newtask}
             deleteTask={deleteTask}
             editTask={editTask}
+            id={this.state.id}
           />
         </div>
       </div>
