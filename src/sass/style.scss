@@ -1,4 +1,3 @@
-
 // header
 .todo-header {
   text-align: center;
@@ -10,94 +9,109 @@
   }
 }
 
+body{
+  text-transform: capitalize;
+}
+
 // form
-.todo-form{
+.todo-form {
   width: 50%;
   margin: auto;
   margin-top: 20px;
-  .filter-todos{
+  .filter-todos {
     border: 0 !important;
-    option{
+    option {
       font-size: 15px;
     }
   }
-  
-  .input-group{
-    .form-control{
+
+  .input-group {
+    .form-control {
       border: 0;
-      &:focus{
+      &:focus {
         outline: 0 !important;
         box-shadow: none !important;
       }
-      &::placeholder{
+      &::placeholder {
         font-size: 15px;
       }
     }
-    .input-group-append{
-      .btn{
+    .input-group-append {
+      .btn {
         background-color: #fff;
         border: 0;
-        i{
+        i {
           color: #fff;
-          background-color: #563D7C;
+          background-color: #563d7c;
           padding: 5px;
         }
-        &:focus{
+        &:focus {
           outline: 0 !important;
           box-shadow: none !important;
         }
       }
     }
-    .input-group-append{
-      .btn:hover{
-        background-color: #563D7C;
-
+    .input-group-append {
+      .btn:hover {
+        background-color: #563d7c;
       }
     }
   }
 }
 
 // todo-list-parent
-.todo-list-parent{
+.todo-list-parent {
   width: 50%;
   margin: auto;
   margin-top: 20px;
-  .list-item{
+  .list-item {
     background-color: #fff;
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 5px;
     position: relative;
     transition: all 1s ease;
-    .delete-task{
+    .delete-task,
+    .edit-task {
       position: absolute;
       right: 0;
       top: 0;
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px;
-      background-color: rgb(87, 2, 2);
-      color: #fff;
+      color: red;
       display: inline-block;
       padding: 10px;
       width: 40px;
       text-align: center;
       cursor: pointer;
-      transition: all .2s ease;
-      &:hover{
+      transition: all 0.2s ease;
+      &:hover {
         color: #fff;
-        opacity: .6;
+        background-color: rgb(102, 102, 102);
       }
     }
+    .edit-task {
+      right: 40px;
+      border-radius: 0;
+      color: #563d7c;
+    }
+  }
+  .task-input{
+    // height: 100%;
+    // padding: 10px;
+    width: 85%;
+    color: #000;
+    background-color: transparent;
+    border: 0;
   }
 }
 
-
-@media(max-width: 800px){
-  .todo-form, .todo-list-parent{
+@media (max-width: 800px) {
+  .todo-form,
+  .todo-list-parent {
     width: 100%;
   }
 }
-
 
 // .select::after {
 //   content: "\25BC";

@@ -8,6 +8,10 @@
   letter-spacing: 5px;
 }
 
+body {
+  text-transform: capitalize;
+}
+
 .todo-form {
   width: 50%;
   margin: auto;
@@ -35,7 +39,7 @@
 }
 .todo-form .input-group .input-group-append .btn i {
   color: #fff;
-  background-color: #563D7C;
+  background-color: #563d7c;
   padding: 5px;
 }
 .todo-form .input-group .input-group-append .btn:focus {
@@ -43,7 +47,7 @@
   box-shadow: none !important;
 }
 .todo-form .input-group .input-group-append .btn:hover {
-  background-color: #563D7C;
+  background-color: #563d7c;
 }
 
 .todo-list-parent {
@@ -59,14 +63,14 @@
   position: relative;
   transition: all 1s ease;
 }
-.todo-list-parent .list-item .delete-task {
+.todo-list-parent .list-item .delete-task,
+.todo-list-parent .list-item .edit-task {
   position: absolute;
   right: 0;
   top: 0;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  background-color: #570202;
-  color: #fff;
+  color: red;
   display: inline-block;
   padding: 10px;
   width: 40px;
@@ -74,13 +78,26 @@
   cursor: pointer;
   transition: all 0.2s ease;
 }
-.todo-list-parent .list-item .delete-task:hover {
+.todo-list-parent .list-item .delete-task:hover,
+.todo-list-parent .list-item .edit-task:hover {
   color: #fff;
-  opacity: 0.6;
+  background-color: #666666;
+}
+.todo-list-parent .list-item .edit-task {
+  right: 40px;
+  border-radius: 0;
+  color: #563d7c;
+}
+.todo-list-parent .task-input {
+  width: 85%;
+  color: #000;
+  background-color: transparent;
+  border: 0;
 }
 
 @media (max-width: 800px) {
-  .todo-form, .todo-list-parent {
+  .todo-form,
+.todo-list-parent {
     width: 100%;
   }
 }

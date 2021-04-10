@@ -4,8 +4,9 @@ import TodoList from "./TodoList";
 class TodoForm extends Component {
   state = {
     newtask: "",
-    allTasks: ["read book", "take gym"],
-    disaled:true
+    allTasks: [],
+    disaled: true,
+    id: 0,
   };
 
   render() {
@@ -14,31 +15,51 @@ class TodoForm extends Component {
     const handelTask = (e) => {
       this.setState({
         newtask: e.target.value,
-        disaled : false
+        disaled: false,
       });
-      if(e.target.value == ""){
+      if (e.target.value == "") {
         this.setState({
-          disaled : true
-        })
+          disaled: true,
+        });
       }
     };
 
-    const addNewTask = () => {
+    const addNewTask = (e) => {
       const newTodoList = [...this.state.allTasks];
-      newTodoList.push(this.state.newtask);
+      newTodoList.push({
+        id: this.state.id + 1,
+        title: this.state.newtask,
+      });
       this.setState({
         allTasks: newTodoList,
         newtask: "",
-        disaled : true
+        disaled: true,
+        id : this.state.id + 1,
       });
+      e.preventDefault();
     };
 
-    const deleteTask = (index) => {
+    const deleteTask = (myindex) => {
+      // const newTodoList = [...this.state.allTasks];
+      // newTodoList.splice(index, 1);
+      // this.setState({
+      //   allTasks: newTodoList,
+      // });
+
+      const filterItem = this.state.allTasks.filter((item, index) => index !== myindex);
+      this.setState({
+        allTasks: filterItem,
+      });
+      // that mean return all elements whithout the element that has index === index
+    };
+
+    const editTask = (myindex) => {
       const newTodoList = [...this.state.allTasks];
-      newTodoList.splice(index, 1);
+      const taskEdit = prompt("Your New Task");
+      newTodoList[myindex].title = taskEdit;
       this.setState({
         allTasks: newTodoList,
-      });
+      })
     };
 
     return (
@@ -59,11 +80,10 @@ class TodoForm extends Component {
                   <div className="input-group-append">
                     <button
                       className="btn"
-                      type="button"
+                      type="submit"
                       name="add-task-button"
                       onClick={addNewTask}
                       disabled={this.state.disaled}
-
                     >
                       <i className="fas fa-plus"></i>
                     </button>
@@ -76,6 +96,7 @@ class TodoForm extends Component {
             allTasks={this.state.allTasks}
             newTask={this.state.newtask}
             deleteTask={deleteTask}
+            editTask={editTask}
           />
         </div>
       </div>
